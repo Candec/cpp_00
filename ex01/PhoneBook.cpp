@@ -35,12 +35,12 @@ int	PhoneBook::Add(void)
 	std::cin >> Book[i].Secret;
 
 	std::cout << std::endl;
-	std::cout << WHITE << BACKYELLOW << "Contact :	" << i + 1 << RESET << std::endl;
-	std::cout << YELLOW << "First_ Name:	" << BOLDBLUE << Book[i].FirstName << RESET << std::endl;
-	std::cout << YELLOW << "Last_ Name:	" << BOLDBLUE << Book[i].LastName << RESET << std::endl;
-	std::cout << YELLOW << "Nick_ Name:	" << BOLDBLUE << Book[i].NickName << RESET << std::endl;
-	std::cout << YELLOW << "Number:		" << BOLDBLUE << Book[i].PhoneNumber << RESET << std::endl;
-	std::cout << YELLOW << "Secret:		" << BOLDBLUE << Book[i].Secret << RESET << std::endl << std::endl;
+	std::cout << WHITE << BACKYELLOW << "Contact :		" << i + 1 << RESET << std::endl;
+	std::cout << YELLOW << "First_ Name:		"	<< BOLDBLUE << Book[i].FirstName << RESET << std::endl;
+	std::cout << YELLOW << "Last_ Name:		"	<< BOLDBLUE << Book[i].LastName << RESET << std::endl;
+	std::cout << YELLOW << "Nick_ Name:		"	<< BOLDBLUE << Book[i].NickName << RESET << std::endl;
+	std::cout << YELLOW << "Number:			"		<< BOLDBLUE << Book[i].PhoneNumber << RESET << std::endl;
+	std::cout << YELLOW << "Secret:			"		<< BOLDBLUE << Book[i].Secret << RESET << std::endl << std::endl;
 
 	if (!Book[i].FirstName.empty() || !Book[i].LastName.empty()
 	|| !Book[i].NickName.empty() || !Book[i].PhoneNumber.empty()
@@ -68,7 +68,7 @@ int PhoneBook::Search()
 {
 	for (int i = 0; i < 8; i++)
 	{
-		std::cout << "|	" << i + 1 << " . |";
+		std::cout << "|\t" << i + 1 << ". |";
 		printC(Book[i]);
 		std::cout << std::endl;
 	}
@@ -80,19 +80,18 @@ int PhoneBook::printC(Contact contact)
 	PrintFmtStr(contact.FirstName);
 	PrintFmtStr(contact.LastName);
 	PrintFmtStr(contact.NickName);
-	std::cout << std::endl;
 	return (0);
 }
 
-int	PrintFmtStr(std::string str)
+int	PhoneBook::PrintFmtStr(std::string str)
 {
 	if (str.size() > 10)
-		std::cout << "	" << str.substr(0, 9) << '.' << " |";
+		std::cout << "\t" << str.substr(0, 9) << '.' << " |";
 	else if (str.size() == 10)
-		std::cout << "	" << str << " |";
+		std::cout << "\t" << str << " |";
 	else
 	{
-		std::cout << "	";
+		std::cout << "\t";
 		for (size_t i = 0; i < 10 - str.size(); i++)
 			std::cout << " ";
 		std::cout << str << " |";
